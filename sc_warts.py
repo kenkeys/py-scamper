@@ -343,6 +343,8 @@ class WartsTrace(WartsBaseObject):
      ('srcaddr', self.unpack_address),
      ('dstaddr', self.unpack_address),
      ('usrid', unpack_uint32_t),
+     ('offset', unpack_uint16_t),
+     ('rtraddr', self.unpack_address),
     ]
     flag_bytes = self.read_flags()
     self.records = unpack_uint16_t(data[flag_bytes:])[0]
