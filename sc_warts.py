@@ -45,13 +45,8 @@ obj_type = {'NONE' : 0x00, 'LIST' : 0x01, 'CYCLESTART' : 0x02, 'CYCLE' : 0x03,
             'TRACELB': 0x08, 'MAGIC' : 0x1205}
 
 def unpack_uint8_t(b):
-  if type(b) == int:
-      return (b, 1)
-  elif type(b) == bytes:
-      return (b[0], 1) 
-  else:
-      print("Die, unknown type in unpack_uint8_t")
-      exit(-1)
+  return (struct.unpack('B', b[0:1])[0], 1)
+
 def unpack_uint16_t(b):
   return (struct.unpack('!H', b[0:2])[0], 2)
 
@@ -131,12 +126,12 @@ class WartsBaseObject(object):
   def unpack_address(self, b):
     """ read a warts-style ip/mac address """
     bytes_read = 0
-    (length, r) = unpack_uint8_t(b[bytes_read])
+    (length, r) = unpack_uint8_t(b[bytes_read:bytes_read+1])
     bytes_read+=r
     #addr = 0
     # an embedded (non-referenced) address
     if length != 0:
-      (typ, r) = unpack_uint8_t(b[bytes_read])
+      (typ, r) = unpack_uint8_t(b[bytes_read:bytes_read+1])
       bytes_read+=r
       addr = b[bytes_read:bytes_read+length]
       bytes_read+=length
