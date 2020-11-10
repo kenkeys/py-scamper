@@ -240,8 +240,8 @@ class WartsPing(WartsBaseObject):
     self.flag_defines = [
      ('listid', unpack_uint32_t),
      ('cycleid', unpack_uint32_t),
-     ('srcipid', read_referenced_address),
-     ('dstipid', read_referenced_address),
+     ('srcipid', self.read_referenced_address),
+     ('dstipid', self.read_referenced_address),
      ('timeval', read_timeval),
      ('stopreas', unpack_uint8_t),
      ('stopdata', unpack_uint8_t),
@@ -285,7 +285,7 @@ class WartsPingReply(WartsBaseObject):
     self.update_ref(refs)
     self.flagdata = data
     self.flag_defines = [
-     ('dstipid', read_referenced_address),
+     ('dstipid', self.read_referenced_address),
      ('flags', unpack_uint8_t),
      ('replyttl', unpack_uint8_t),
      ('replysize', unpack_uint16_t),
