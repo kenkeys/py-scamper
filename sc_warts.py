@@ -181,7 +181,7 @@ class WartsDeprecatedAddress:
     elif self.type == 0x02:
       self.addr = socket.inet_ntop(socket.AF_INET6, data[2:18])
     else:
-      sys.stderr.write("Addr type:", self.type, "not implemented.")
+      print("Addr type:", self.type, "not implemented.", file=sys.stderr)
       assert False
 
 
@@ -689,7 +689,7 @@ class WartsReader(object):
     self.fd = open(infile, 'rb')
     return self.fd
 
-  def next(self):
+  def __next__(self):
     while True:
       obj = self.next_object()
       if not obj: 
@@ -746,5 +746,5 @@ if __name__ == "__main__":
   assert len(sys.argv) == 2
   w = WartsReader(sys.argv[1], verbose=True)
   while True:
-    (flags, hops) = w.next()
+    (flags, hops) = next(w)
     if flags == False: break
