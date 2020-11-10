@@ -8,7 +8,10 @@ import sys
 from sc_stats import WartsStats, basic, obj_type
 
 def print_trace(flags, ips, rtts, meta):
-  print("traceroute from %s to %s" % (flags['srcaddr'], flags['dstaddr']))
+  print("traceroute from %s to %s" % (flags['srcaddr'], flags['dstaddr']), end='')
+  if 'rtraddr' in flags:
+      print(" via %s" % (flags['rtraddr'],), end='')
+  print()
   for i, ip in enumerate(ips):
     ttl = i+1
     print("%2d  %s" % (ttl, ip), end=' ')
