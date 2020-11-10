@@ -45,6 +45,7 @@ if __name__ == "__main__":
 
   w = WartsStats(sys.argv[1], verbose=False)
   while True:
+    flags = {}
     try:
       (typ, data) = next(w) 
       if typ == None: 
