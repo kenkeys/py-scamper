@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Program:      $Id: sc_attach.py 1537 2015-02-06 21:53:51Z rbeverly $
 # Author:       Robert Beverly <rbeverly@nps.edu>

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # 
 # Program:      $Id: sc_analysis_dump.py 1551 2015-02-11 14:14:09Z rbeverly $
 # Author:       Robert Beverly <rbeverly@nps.edu>

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # 
 # Program:      $Id: $
 # Author:       Robert Beverly <rbeverly@nps.edu>

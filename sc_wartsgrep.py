@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # 
 # Program:      $Id: sc_wartsgrep.py $
 # Author:       Robert Beverly <rbeverly@nps.edu>
